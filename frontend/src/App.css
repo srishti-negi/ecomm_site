@@ -1,0 +1,110 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #2f0e8b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.searchbox-css {
+  height: 10px;
+}
+
+.justify-description-css {
+  text-align: justify;
+  white-space: pre-line;
+}
+
+.edit-button-css {
+  position: relative;
+  top: -30px;
+  float: right;
+  color: grey;
+  cursor: pointer;
+  transition: transform .2s; /* Animation */
+}
+
+.edit-button-css:hover {
+  color: #6699ff;
+  transform: scale(1.3)
+}
+
+.delete-button-css {
+  position: relative;
+  top: -30px;
+  float: right;
+  color: grey;
+  cursor: pointer;
+  transition: transform .2s; /* Animation */
+}
+
+.delete-button-css:hover {
+  color: red;
+  transform: scale(1.3)
+}
+
+.saved-cards-css {
+  color: black;
+}
+
+.saved-cards-css:hover {
+  cursor: pointer;
+  background-color: #b6dfdf;
+}
+
+.button-focus-css:focus {
+  box-shadow: none !important;
+}
+
+.footer-css {
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  /* Height of the footer*/ 
+  height: 40px;
+  background: rgb(68, 7, 147);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* body{
+  background-color: #86aaf3;
+} */
+
+body {
+  background: #e0e0e0;
+  color: #707070;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='600' preserveAspectRatio='none' viewBox='0 0 1440 600'%3e%3cg mask='url(%26quot%3b%23SvgjsMask2477%26quot%3b)' fill='none'%3e%3crect width='1440' height='600' x='0' y='0' fill='url(%23SvgjsLinearGradient2478)'%3e%3c/rect%3e%3cpath d='M73.69283545261558 77.84892500930582L128.8402938310163 108.41766035306813 147.1196676574594 10.412105113585902z' fill='rgba(99%2c 184%2c 229%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M319.68411702266695 3.781112693939207L128.17003920651032 51.337118159905515 245.8131518901926 177.49391115179424z' fill='rgba(99%2c 184%2c 229%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M225.3186457281542 353.14371577701587L120.8912502976887 387.0742333786763 154.82176789934914 491.50162880914183 259.2491633298146 457.57111120748135z' fill='rgba(99%2c 184%2c 229%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1370.433%2c413.902C1417.662%2c412.653%2c1464.409%2c398.948%2c1491.211%2c360.04C1522.166%2c315.103%2c1540.178%2c255.298%2c1511.788%2c208.698C1484.104%2c163.258%2c1423.57%2c159.03%2c1370.433%2c161.796C1323.146%2c164.257%2c1278.149%2c182.421%2c1252.457%2c222.196C1224.3%2c265.788%2c1210.859%2c322.539%2c1238.057%2c366.736C1264.37%2c409.494%2c1320.245%2c415.23%2c1370.433%2c413.902' fill='rgba(99%2c 184%2c 229%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M510.423%2c687.273C546.791%2c685.644%2c581.666%2c673.653%2c602.617%2c643.882C627.584%2c608.406%2c644.409%2c563.303%2c624.955%2c524.529C603.903%2c482.571%2c557.28%2c457.294%2c510.423%2c460.129C467.433%2c462.73%2c438.633%2c499.479%2c417.621%2c537.075C397.278%2c573.474%2c380.806%2c617.361%2c402.724%2c652.834C423.957%2c687.2%2c470.067%2c689.08%2c510.423%2c687.273' fill='rgba(99%2c 184%2c 229%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M253.903%2c478.665C312.765%2c480.157%2c377.281%2c463.335%2c404.157%2c410.945C429.654%2c361.242%2c395.97%2c306.642%2c366.492%2c259.192C339.305%2c215.428%2c305.302%2c172.628%2c253.903%2c169.079C196.71%2c165.13%2c139.734%2c192.083%2c110.725%2c241.531C81.4%2c291.516%2c86.335%2c354.037%2c116.289%2c403.647C145.232%2c451.582%2c197.926%2c477.246%2c253.903%2c478.665' fill='rgba(99%2c 184%2c 229%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M229.66496838723197 212.57232480027378L373.83913132160234 181.92716044529038 343.193966966619 37.75299751092001 199.01980403224857 68.3981618659034z' fill='rgba(99%2c 184%2c 229%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1032.002272556277 674.1005187722444L998.6421339256258 502.4774836066021 827.0190987599835 535.8376222372532 860.3792373906347 707.4606574028955z' fill='rgba(99%2c 184%2c 229%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M749.987%2c318.681C793.832%2c319.413%2c844.206%2c316.167%2c865.79%2c277.996C887.189%2c240.151%2c864.674%2c194.993%2c840.273%2c159.011C819.403%2c128.236%2c787.148%2c108.553%2c749.987%2c107.232C710.149%2c105.816%2c669.688%2c118.819%2c647.859%2c152.174C623.938%2c188.726%2c617.855%2c237%2c640.695%2c274.238C662.733%2c310.169%2c707.842%2c317.977%2c749.987%2c318.681' fill='rgba(99%2c 184%2c 229%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask2477'%3e%3crect width='1440' height='600' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='14.58%25' y1='-35%25' x2='85.42%25' y2='135%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient2478'%3e%3cstop stop-color='rgba(41%2c 45%2c 114%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(107%2c 204%2c 231%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+  margin: 0;
+  padding: 0;
+}
