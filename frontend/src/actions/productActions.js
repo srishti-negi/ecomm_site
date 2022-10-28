@@ -22,6 +22,10 @@ import {
     CHANGE_DELIVERY_STATUS_REQUEST,
     CHANGE_DELIVERY_STATUS_SUCCESS,
     CHANGE_DELIVERY_STATUS_FAIL,
+    ADD_TO_CART,
+    ADD_TO_CART_SUCCESS,
+    ADD_TO_CART_FAIL,
+    REMOVE_FROM_CART
 
 } from '../constants/index'
 
@@ -227,6 +231,75 @@ export const changeDeliveryStatus = (id, product) => async (dispatch, getState) 
     } catch (error) {
         dispatch({
             type: CHANGE_DELIVERY_STATUS_FAIL,
+            payload: error.response && error.response.data.detail ? error.response.data.detail : error.message
+        })
+    }
+}
+
+// Add to cart
+export const addToCart = (product) => async (dispatch, getState) => {
+
+    try {
+        dispatch({
+            type: ADD_TO_CART
+        })
+
+        // login reducer
+        const {
+            userLoginReducer: { userInfo },
+        } = getState()
+
+        // api call
+        const { data } = await axios.post(
+            "/api/add-to-cart/",
+            product,
+        )
+
+        dispatch({
+            type: ADD_TO_CART_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: ADD_TO_CART_FAIL,
+            payload: error.response && error.response.data.detail ? error.response.data.detail : error.message
+        })
+    }
+}
+
+// delete from cart
+export const deleteFromCart = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: REMOVE_FROM_CART
+        })
+
+        // login reducer
+        const {
+            userLoginReducer: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${userInfo.token}`
+            }
+        }
+
+        // api call
+        const { data } = await axios.delete(
+            `/api/remove-from-cart/${id}/`,
+            config
+        )
+
+        dispatch({
+            type: DELETE_PRODUCT_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: DELETE_PRODUCT_FAIL,
             payload: error.response && error.response.data.detail ? error.response.data.detail : error.message
         })
     }

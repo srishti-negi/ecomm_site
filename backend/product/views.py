@@ -1,8 +1,8 @@
-from .models import Product
+from .models import Product, ShoppingCart
 from rest_framework import status
 from django.shortcuts import render
 from rest_framework.views import APIView
-from .serializers import ProductSerializer
+from .serializers import ProductSerializer, ShoppingCartSerializer
 from rest_framework.response import Response
 from rest_framework import authentication, permissions
 from rest_framework.decorators import permission_classes
@@ -83,3 +83,32 @@ class ProductEditView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response({"detail": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+
+# Add to Shopping cart
+class AddShoppingCartProduct(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+    def post(self, request): 
+        pk = request.id
+        product = Product.objects.get(id=pk)
+        cart_product = {
+            "id": product["id"],
+            "name": product["name"],
+            "price": product["price"]
+        }
+        serializer = ShoppingCartSerializer(data=cart_product, many=False)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# delete from cart
+class DeleteShoppingCartProduct(APIView):
+
+    def delete(self, request, pk):
+        try:
+            product = ShoppingCart.objects.filter(id=pk)
+            product.delete()
+            return Response({"details": "Product successfully deleted from shoppig cart."}, status=status.HTTP_204_NO_CONTENT)
+        except:
+            return Response({"details": "Not found."}, status=status.HTTP_404_NOT_FOUND)

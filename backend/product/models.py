@@ -10,3 +10,10 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class ShoppingCart(models.Model):
+    name = models.CharField(max_length=200, null=False, blank=False)
+    price = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
+
+    def __str__(self):
+        return self.name

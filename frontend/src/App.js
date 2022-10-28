@@ -32,6 +32,7 @@ const App = () => {
             <Route path="/new-product/" component={ProductCreatePage} exact />
             <Route path="/product/:id/" component={ProductDetailsPage} exact />
             <Route path="/product-update/:id/" component={ProductUpdatePage} exact />
+            <Route path="/add-to-cart/:id/" component={ProductUpdatePage} exact />
             <Route path="/product/:id/checkout/" component={CheckoutPage} exact />
             <Route path="/payment-status" component={PaymentStatus} exact />
             <Route path="/login" component={Login} exact />

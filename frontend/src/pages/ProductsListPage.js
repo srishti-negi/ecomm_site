@@ -29,7 +29,7 @@ function ProductsListPage() {
     const showNothingMessage = () => {
         return (
             <div>
-                {!loading ? <Message variant='info'>Nothing to show</Message> : ""}                
+                {!loading ? <Message variant='info'>We don't have this product yet.</Message> : ""}                
             </div>
         )
     }
