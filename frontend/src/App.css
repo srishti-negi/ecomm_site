@@ -108,3 +108,13 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.order {
+  width:100px; 
+  float:left;
+}
+
+.removeFromCart {
+  border-radius: 12px;
+  background-color: #ffffff;
+}

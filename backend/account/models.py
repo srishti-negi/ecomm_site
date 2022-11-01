@@ -47,3 +47,4 @@ class OrderModel(models.Model):
     is_delivered = models.BooleanField(default=False)
     delivered_at = models.CharField(max_length=200, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True) 
+    image = models.ImageField(null=True, blank=True)

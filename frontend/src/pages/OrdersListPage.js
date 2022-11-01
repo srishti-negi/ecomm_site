@@ -14,7 +14,7 @@ function OrdersListPage() {
 
     let history = useHistory()
     const dispatch = useDispatch()
-    const placeholderValue = "Search orders by Customer Name, Address or by Ordered Item"
+    const placeholderValue = "Search orders by book name"
 
     const todays_date = dateCheck(new Date().toISOString().slice(0, 10))
 
@@ -90,17 +90,11 @@ function OrdersListPage() {
                     <thead>
                         <tr className="p-3 bg-info text-white text-center">
                             <th>Order Id</th>
-                            <th>Customer Name</th>
-                            <th>Card Used</th>
-                            <th>Delivery Address</th>
+                            <th>Image</th>
                             <th>Ordered Item</th>
-                            <th>Paid Status</th>
-                            <th>Paid On</th>
                             <th>Total Amount</th>
-                            <th>Delivered Status</th>
-                            <th>Delivered On</th>
                             {userInfo.admin &&
-                                <th>Delivery Status</th>
+                                <th>Remove from cart</th>
                             }
                         </tr>
                     </thead>
@@ -122,24 +116,11 @@ function OrdersListPage() {
                                 <td>
                                     {order.id}
                                 </td>
+                                <td>
+                                <img src = {order.image} className="order"></img></td>
                                 <td>{order.name}</td>
-                                <td>{order.card_number}</td>
-                                <td>{order.address}</td>
-                                <td>{order.ordered_item}</td>
-                                <td>{order.paid_status ?
-                                    <i className="fas fa-check-circle text-success"></i>
-                                    :
-                                    <i className="fas fa-times-circle text-danger"></i>
-                                }</td>
-                                <td>{dateCheck(order.paid_at)}</td>
-                                <td>{order.total_price} INR</td>
-                                <td>{order.is_delivered ?
-                                    <i className="fas fa-check-circle text-success"></i>
-                                    :
-                                    <i className="fas fa-times-circle text-danger"></i>
-                                }</td>
-                                <td>{order.delivered_at}</td>
-                                {userInfo.admin &&
+                                <td>{order.total_price}</td>
+                                {/* {userInfo.admin &&
                                     <td>
                                         {order.is_delivered ?
                                             <button
@@ -169,12 +150,17 @@ function OrdersListPage() {
                                             </button>
                                         }
                                     </td>
-                                }
+                                } */}
+                                <td>
+                                    <button className="removeFromCart">Remove From Cart</button>
+                                </td>
                             </tr>
+
                         </tbody>
                     ))}
                 </Table>
                 : <Message variant="info">No orders yet.</Message> }
+                <button className="removeFromCart">Total Amount: 7200.98</button>
         </div>
     )
 }
