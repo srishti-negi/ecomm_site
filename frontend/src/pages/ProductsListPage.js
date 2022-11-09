@@ -26,6 +26,8 @@ function ProductsListPage() {
         //dispatch(checkTokenValidation())
     }, [dispatch])
 
+
+
     const showNothingMessage = () => {
         return (
             <div>
@@ -36,6 +38,7 @@ function ProductsListPage() {
 
     return (
         <div>
+            <div id='mydiv'><p>We see you have been browsing for a while. Need any help?</p></div>
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <span style={{ display: "flex" }}>
                 <h5>Getting Products</h5>

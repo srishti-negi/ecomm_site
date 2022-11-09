@@ -5,7 +5,7 @@ import Message from '../components/Message'
 import { Spinner, Row, Col, Container, Card, Button, Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { CREATE_PRODUCT_RESET, DELETE_PRODUCT_RESET, UPDATE_PRODUCT_RESET, CARD_CREATE_RESET } from '../constants'
-
+export let cartList = [[28, "Harry Porter and Philosopher's Stone	", 299.99, "/images/51P1Rfz5n3L._SX331_BO1204203200__5newo9T.jpg", 1]]
 
 function ProductDetailsPage({ history, match }) {
 
@@ -58,7 +58,7 @@ function ProductDetailsPage({ history, match }) {
 
     return (
         <div>
-
+            
             {/* Modal Start*/}
             <div>
                 <Modal show={show} onHide={handleClose}>
@@ -89,14 +89,15 @@ function ProductDetailsPage({ history, match }) {
                     <Spinner animation="border" />
                 </span>
             </span>}
+            
             {error ? <Message variant='danger'>{error}</Message>
                 :
                 <div>
+                    
                     <Container>
                         <Row>
                             <Col md={6}>
                                 <Card.Img variant="top" src={product.image} height="420" />
-
                                 {/* Product edit and delete conditions */}
 
                                 {userInfo && userInfo.admin ?
@@ -132,7 +133,34 @@ function ProductDetailsPage({ history, match }) {
                                     padding: "2px"
                                 }}>
                                     Price:<span className="text-success ml-2">₹ {product.price}</span>
+
+
                                 </span>
+                                <button onClick={() => { 
+                                    if(product.stock) {
+                                    let product_details = [product.id, product.name, product.price, product.image]
+                                    const check_index = cartList.findIndex(item => item[0] === product_details[0]);
+                                    if (check_index !== -1) {
+                                        cartList[check_index][4]++;
+                                        console.log("Quantity updated:");
+                                    } else {
+                                        product_details.push(1)
+                                        cartList.push(product_details) 
+                                        console.log('New product has been added to cart:');
+                                    }
+                                    console.log(cartList)
+                                    history.push('/all-orders')
+                                    history.goForward()
+                                    window.alert("product added to cart")
+                                }
+                                else {
+                                    window.alert("Sorry product is out of stock currently, browse our catalouge for more books.");
+                                    history.push('/')
+                                    history.goForward()
+                                }
+                                }
+                                }> 
+                                Cart </button>
                             </Col>
                             <Col sm>
                                 <b>Buy</b>

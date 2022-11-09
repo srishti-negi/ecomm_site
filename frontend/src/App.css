@@ -118,3 +118,21 @@ body {
   border-radius: 12px;
   background-color: #ffffff;
 }
+
+#mydiv {
+  padding:10px;
+  height: 50px;
+  background-color: rgb(5, 13, 77);
+  color: #e0e0e0;
+  display: none;
+  text-align: center;
+}
+
+#cartTable {
+  width: 100%;
+  color: #ffffff;
+}
+
+#cartTable td{
+  color: #ffffff;
+}
