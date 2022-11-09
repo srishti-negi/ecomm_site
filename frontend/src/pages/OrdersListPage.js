@@ -227,7 +227,10 @@ function OrdersListPage() {
             })}
           </tbody>
         </table>
-        <button className="removeFromCart">Total Amount: {total_amount}</button>
+        <button className="removeFromCart" onClick={() => {
+            history.push("/stripe-card-details/")
+            history.goForward()
+        }}>Total Amount: {total_amount}</button>
       </div>
     )
 }

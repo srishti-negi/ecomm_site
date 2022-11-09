@@ -66,11 +66,16 @@ function NavBar() {
                                         <NavDropdown.Item>Address Settings</NavDropdown.Item>
                                     </LinkContainer>
                                     <LinkContainer to="/stripe-card-details/">
-                                        <NavDropdown.Item>Card Settings</NavDropdown.Item>
+                                        <NavDropdown.Item>Cart Checkout</NavDropdown.Item>
                                     </LinkContainer>
                                     <LinkContainer to="/all-orders/">
-                                        <NavDropdown.Item>All Orders</NavDropdown.Item>
+                                        <NavDropdown.Item>Shopping Cart</NavDropdown.Item>
                                     </LinkContainer>
+                                    <NavDropdown.Item>
+                                        <a href="https://forms.gle/rRxF7VnCcPEwzbFd6">
+                                            Request admin privledge
+                                        </a>
+                                    </NavDropdown.Item>
                                     <NavDropdown.Item onClick={logoutHandler}>
                                         Logout
                                     </NavDropdown.Item>
